@@ -13,8 +13,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Museum"),
+        title: const Center(child: Text("Museum")),
         backgroundColor: Colors.orange,
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 10.0),
+            child: Icon(Icons.person_2_rounded),
+          )],
       ),
       body: Column(
         children: [
@@ -32,7 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: const [
                   CategoryCard(
                     title: "Art Gallery",
-                    icon: Icons.art_track,
+                    icon: Icons.article,
+                    
                   ),
                   CategoryCard(
                     title: "WWI Exhibition",
@@ -44,8 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const [
                   CategoryCard(
-                      title: "Exploring the space", icon: Icons.ac_unit),
-                  CategoryCard(title: "Visual Show", icon: Icons.ac_unit),
+                      title: "Exploring the space", icon: Icons.spatial_tracking),
+                  CategoryCard(
+                    title: "Visual Show", icon: Icons.ac_unit),
                 ],
               ),
             ],

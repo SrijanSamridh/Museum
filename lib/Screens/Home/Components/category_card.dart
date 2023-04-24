@@ -22,7 +22,9 @@ class CategoryCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon),
+          Icon(icon,
+          color: Colors.black,
+          size: 80,),
           Text(
             title,
             style: const TextStyle(fontSize: 15, fontFamily: 'RobotoMono', color: Colors.black),
