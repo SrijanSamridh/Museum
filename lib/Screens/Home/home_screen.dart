@@ -19,7 +19,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: EdgeInsets.only(right: 10.0),
             child: Icon(Icons.person_2_rounded),
-          )],
+          )
+        ],
       ),
       body: Column(
         children: [
@@ -36,13 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const [
                   CategoryCard(
+                    imgURl: "assets/images/exploringthespace.png",
                     title: "Art Gallery",
-                    icon: Icons.article,
-                    
                   ),
                   CategoryCard(
+                    imgURl: "assets/images/exploringthespace.png",
                     title: "WWI Exhibition",
-                    icon: Icons.art_track,
                   ),
                 ],
               ),
@@ -50,9 +50,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const [
                   CategoryCard(
-                      title: "Exploring the space", icon: Icons.spatial_tracking),
+                    imgURl: "assets/images/exploringthespace.png",
+                    title: "Exploring the space",
+                  ),
                   CategoryCard(
-                    title: "Visual Show", icon: Icons.ac_unit),
+                    imgURl: "assets/images/exploringthespace.png",
+                    title: "Visual Show",
+                  ),
                 ],
               ),
             ],
