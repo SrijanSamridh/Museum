@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>806103212799-45oikt175sm3bthk9g1hkk54j7ju0elo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.806103212799-45oikt175sm3bthk9g1hkk54j7ju0elo</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>806103212799-vv7iq0pvrvtol0rvrrablirblqu1l2ka.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDYdBXidfXyuLikE0j36wNMk5wKkPD4HO8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>806103212799</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.mmuseum</string>
+	<key>PROJECT_ID</key>
+	<string>museum-31273</string>
+	<key>STORAGE_BUCKET</key>
+	<string>museum-31273.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:806103212799:ios:722a1745b54e46f8bda2ca</string>
+</dict>
+</plist>

@@ -1,5 +1,11 @@
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'components/category_card.dart';
+import 'package:mmuseum/utils/constants.dart';
+
+import '../../Components/drawer.dart';
+import 'Components/body.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -9,60 +15,76 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  User? user;
+
+  @override
+  void initState() {
+    super.initState();
+    User? newUser = FirebaseAuth.instance.currentUser;
+    setState(() {
+      user = newUser;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text("Museum")),
-        backgroundColor: Colors.orange,
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 10.0),
-            child: Icon(Icons.person_2_rounded),
-          )
-        ],
-      ),
-      body: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(40.0),
-            child: Text(
-              "Choose your category",
-              style: TextStyle(fontSize: 30, fontFamily: 'RobotoMono'),
-            ),
-          ),
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  CategoryCard(
-                    imgURl: "assets/images/exploringthespace.png",
-                    title: "Art Gallery",
-                  ),
-                  CategoryCard(
-                    imgURl: "assets/images/exploringthespace.png",
-                    title: "WWI Exhibition",
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  CategoryCard(
-                    imgURl: "assets/images/exploringthespace.png",
-                    title: "Exploring the space",
-                  ),
-                  CategoryCard(
-                    imgURl: "assets/images/exploringthespace.png",
-                    title: "Visual Show",
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
+      appBar: buildAppBar(user!),
+      drawer: const MyDrawer(),
+      body: const Body(),
+      // bottomNavigationBar: const MyBottomNavBar(),
     );
   }
+}
+
+AppBar buildAppBar(dynamic user) {
+  return AppBar(
+    title: const Text(
+      'Museum',
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 2.0,
+      ),
+    ),
+    backgroundColor: kPrimaryColor,
+    // elevation: 0,
+    leading: Builder(
+      builder: (BuildContext context) {
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14.0),
+              color: Colors.white10,
+            ),
+            child: IconButton(
+              icon: const Icon(
+                Icons.widgets_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            ),
+          ),
+        );
+      },
+    ),
+    actions: [
+      Padding(
+        padding: const EdgeInsets.only(right: 20.0),
+        child: user != Null
+            ? CircleAvatar(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.network(user.photoURL),
+                ),
+              )
+            : const Icon(CupertinoIcons.person),
+      )
+    ],
+  );
 }
